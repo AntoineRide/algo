@@ -1,6 +1,6 @@
 <?php
 $memory ="";
-$comparaison = 1;
+$comparaison = 0;
 $Tableau = array(9, 5, 6, 3, 2, 1, 4, 8, 7);
 echo "Donnée : ";
 for($i = 0; $i < count($Tableau); $i++) {
@@ -28,6 +28,7 @@ for($I = count($Tableau) - 2;$I >= 0; $I--) {
 echo "Affichage : ";
 for($j = 0; $j < count($Tableau); $j++) {
   $comparaison++;
+  $memory++;
   echo $Tableau[$j].", ";
 }
 echo "Mémoire : $memory";
