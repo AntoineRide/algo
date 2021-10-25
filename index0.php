@@ -1,36 +1,31 @@
 <?php
-$memory ="";
 $comparaison = 0;
-$Tableau = array(9, 5, 6, 3, 2, 1, 4, 8, 7);
+$memory = 0;
+// Je défini un tableau
+echo PHP_EOL;
+$tableau = array(9, 8, 7, 6, 5, 4, 3, 2, 1);
 echo "Donnée : ";
-for($i = 0; $i < count($Tableau); $i++) {
- $memory++;
- $comparaison++;
- echo  $Tableau[$i].", ";
- 
-}
- 
-for($I = count($Tableau) - 2;$I >= 0; $I--) {
- $comparaison++;
- for($J = 0; $J <= $I; $J++) {
-  $comparaison++;
-  if($Tableau[$J + 1] < $Tableau[$J]) {
-   $comparaison++;
-   $t = $Tableau[$J + 1];
-   $Tableau[$J + 1] = $Tableau[$J];
-   $Tableau[$J] = $t;
-   $memory+= 6;
-   
-  }
- }
-}
+echo implode(",", $tableau);
 
-echo "Affichage : ";
-for($j = 0; $j < count($Tableau); $j++) {
-  $comparaison++;
-  $memory++;
-  echo $Tableau[$j].", ";
+for ($I = count($tableau) - 2; $I >= 0; $I--) {
+    for ($J = 0; $J <= $I; $J++) {
+        $data = $tableau[$J];
+        $tbl = $tableau[$J + 1];
+        if ($tbl < $data) {
+            $tableau[$J + 1] = $data;
+            $tableau[$J] = $tbl;
+            $memory += 2;
+        }
+        $memory += 2;
+        $comparaison++;
+    }
 }
+echo PHP_EOL;
+echo "Affichage : ";
+echo implode(",", $tableau);
+
+echo PHP_EOL;
+echo PHP_EOL;
 echo "Mémoire : $memory";
+echo PHP_EOL;
 echo "Comparaison : $comparaison";
-?>
